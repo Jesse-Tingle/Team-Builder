@@ -19,7 +19,8 @@ const Form = props => {
         event.preventDefault();
         console.log(newMember)
         props.setTeamMember([
-            ...props.teamMember, newMember
+            newMember,
+            ...props.teamMember,
         ]);
     }
 
