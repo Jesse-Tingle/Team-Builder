@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
 
 const Form = props => {
-    const [name, setName] = useState();
+    // const [name, setName] = useState();
+    // const [email, setEmail] = useState();
+
+    const [newMember, setNewMember] = useState({
+        name: "",
+        email: "",
+    })
 
     const handleChange = (event) => {
-        setName(event.target.value);
+        setNewMember({ 
+            ...newMember, 
+            [event.target.name]: event.target.value 
+        })
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(newMember)
     }
 
     return (
-        <form>
-            Name: {name}
+        <form onSubmit={handleSubmit}>
             <input
                 onChange={handleChange}
                 type="text" 
@@ -17,13 +30,15 @@ const Form = props => {
                 placeholder="Name"
             />
 
-            {/* <input
+            
+            <input
+                onChange={handleChange}
                 type="text"
                 name="email"
                 placeholder="Email"
             />
 
-            <select>
+            {/* <select>
                 <option>Full Stack Engineer</option>
                 <option>Front End Engineer</option>
                 <option>Backend Engineer</option>
