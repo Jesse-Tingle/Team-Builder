@@ -20,6 +20,15 @@ const Form = props => {
         console.log(newMember)
     }
 
+    const resetForm = (event) => {
+        event.preventDefault();
+        setNewMember({
+            name: "",
+            email: "",
+            role: ""
+        })
+    }
+
     return (
         <form onSubmit={handleSubmit}>
             <input
@@ -27,6 +36,7 @@ const Form = props => {
                 type="text" 
                 name="name"
                 placeholder="Name"
+                value={newMember.name}
             />
 
             
@@ -35,6 +45,7 @@ const Form = props => {
                 type="text"
                 name="email"
                 placeholder="Email"
+                value={newMember.email}
             />
 
             <select
@@ -51,6 +62,7 @@ const Form = props => {
             </select>
 
             <button type="submit">Submit</button>
+            <button type="button" onClick={resetForm}>Reset</button>
         </form>
     )
 }
