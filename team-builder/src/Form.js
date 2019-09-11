@@ -18,6 +18,9 @@ const Form = props => {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(newMember)
+        props.setTeamMember([
+            ...props.teamMember, newMember
+        ]);
     }
 
     const resetForm = (event) => {

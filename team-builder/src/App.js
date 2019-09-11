@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <h1>My Team</h1>
 
-      <Form />
+      <Form teamMember={teamMember} setTeamMember={setTeamMember} />
 
       {teamMember.map((member, index) => (
         <div className="member" key={index}>
