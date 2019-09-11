@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
 const Form = props => {
-    // const [name, setName] = useState();
-    // const [email, setEmail] = useState();
 
     const [newMember, setNewMember] = useState({
         name: "",
         email: "",
+        role: ""
     })
 
     const handleChange = (event) => {
@@ -38,13 +37,18 @@ const Form = props => {
                 placeholder="Email"
             />
 
-            {/* <select>
+            <select
+                defaultValue={'DEFAULT'}
+                onChange={handleChange}
+                name="role"
+            >
+                <option value="DEFAULT" disabled hidden>Choose Here</option>
                 <option>Full Stack Engineer</option>
                 <option>Front End Engineer</option>
                 <option>Backend Engineer</option>
                 <option>UX/UI Engineer</option>
                 <option>Data Science Engineer</option>
-            </select> */}
+            </select>
 
             <button type="submit">Submit</button>
         </form>
